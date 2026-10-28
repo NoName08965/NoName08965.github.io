@@ -3,42 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atelier d'Art par l'IA - Boutique Exclusive</title>
+    <title>Atelier d'Art IA - Boutique Exclusive</title>
     <style>
         body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: #0a0a0c; color: #fff; text-align: center; }
         header { background: #121216; padding: 35px 20px; border-bottom: 1px solid #23232a; }
-        header h1 { margin: 0; color: #00ffcc; font-size: 32px; letter-spacing: 1px; }
+        header h1 { margin: 0; color: #00ffcc; font-size: 32px; }
         header p { margin: 10px 0 0; color: #7e7e8c; font-size: 15px; }
         .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; }
-        .product-card { background: #121216; width: 320px; border-radius: 16px; overflow: hidden; border: 1px solid #23232a; transition: 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
-        .product-card:hover { transform: translateY(-8px); border-color: #00ffcc; }
+        .product-card { background: #121216; width: 320px; border-radius: 16px; overflow: hidden; border: 1px solid #23232a; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
         .product-img { width: 100%; height: 320px; background: #1c1c24; display: flex; align-items: center; justify-content: center; color: #4e4e5f; font-size: 14px; font-weight: bold; }
         .product-info { padding: 25px; text-align: left; }
-        .product-title { font-size: 22px; margin: 0 0 10px; color: #fff; font-weight: 600; text-align: center; }
+        .product-title { font-size: 22px; margin: 0 0 10px; color: #fff; text-align: center; }
         .product-desc { color: #8a8a9e; font-size: 14px; margin-bottom: 20px; line-height: 1.5; }
         .product-price { font-size: 26px; color: #00ffcc; font-weight: bold; margin-bottom: 20px; text-align: center; }
-        .buy-btn { display: block; background: #00ffcc; color: #0a0a0c; padding: 14px 0; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; letter-spacing: 0.5px; transition: 0.2s; text-align: center; }
-        .buy-btn:hover { background: #00e6b8; box-shadow: 0 0 15px rgba(0,255,204,0.4); }
+        
+        .order-form { display: none; background: #121216; padding: 20px; border-radius: 12px; border: 1px solid #00ffcc; margin-top: 15px; }
+        .order-form input { width: 93%; padding: 10px; margin-bottom: 10px; background: #1c1c24; border: 1px solid #23232a; color: #fff; border-radius: 6px; }
+        .buy-btn, .submit-btn { display: block; width: 100%; background: #00ffcc; color: #0a0a0c; padding: 14px 0; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; text-align: center; cursor: pointer; border: none; }
+        .submit-btn { background: #ffcc00; }
     </style>
+    <script>
+        function showForm() { document.getElementById('form-block').style.display = 'block'; }
+    </script>
 </head>
 <body>
 
     <header>
         <h1>Atelier d'Art par l'IA</h1>
-        <p>Créations physiques exclusives nées de l'Intelligence Artificielle. Livraison gratuite en France.</p>
+        <p>Créations physiques exclusives. Édition limitée. Livraison en France.</p>
     </header>
 
     <div class="container">
-        <!-- Карточка твоего первого ИИ-товара -->
         <div class="product-card">
             <div class="product-img">APERÇU DU PRODUIT (IA)</div>
             <div class="product-info">
                 <h2 class="product-title">Sweat-shirt "Futur Concept" IA</h2>
-                <p class="product-desc">
-                    Édition limitée. Un design physique unique généré par Intelligence Artificielle et imprimé sur un tissu premium ultra-doux (80% coton). Confort absolu, style futuriste introuvable en magasin.
-                </p>
+                <p class="product-desc">Design exclusif généré par IA. Tissu premium (80% coton). Imprimé et expédié en Europe.</p>
                 <div class="product-price">59.00 €</div>
-                <a href="#" class="buy-btn">Acheter maintenant</a>
+                <button onclick="showForm()" class="buy-btn">Acheter maintenant</button>
+
+                <!-- Форма с твоим личным ID, которая шлёт заказы на твою почту -->
+                <form action="https://formspree.io" method="POST" id="form-block" class="order-form">
+                    <input type="email" name="email" placeholder="Votre Email" required>
+                    <input type="text" name="name" placeholder="Votre Nom et Prénom" required>
+                    <input type="text" name="address" placeholder="Adresse de livraison en France" required>
+                    <button type="submit" class="submit-btn">Confirmer la commande</button>
+                </form>
             </div>
         </div>
     </div>
